@@ -1,0 +1,25 @@
+{
+  "name": "node-sass-module-importer",
+  "version": "0.1.0",
+  "description": "Allows sass files to be imported from node_modules using '~', like webpacks loader ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CollabraMusic/node-sass-module-importer.git"
+  },
+  "keywords": [
+    "sass",
+    "node_modules",
+    "node-sass",
+    "importer"
+  ],
+  "author": "Brandon Kobel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/CollabraMusic/node-sass-module-importer/issues"
+  },
+  "homepage": "https://github.com/CollabraMusic/node-sass-module-importer#readme"
+}
