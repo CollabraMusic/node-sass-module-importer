@@ -13,6 +13,6 @@ module.exports = function importer(url, prev, done){
     return done({file: url});
   }
 
-  var newFile = path.join(__dirname, 'node_modules', url.replace(regex, ''));
+  var newFile = path.join(__dirname, '../../', 'node_modules', url.replace(regex, ''));
   return done({file: newFile});
 }
