@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = function importer(url, prev, done){
   var regex = /^~/;
   if (!url.match(regex)) {
