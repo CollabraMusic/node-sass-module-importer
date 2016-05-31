@@ -12,7 +12,7 @@ module.exports = function importer (url, prev, done){
   } else {
     // if we don't escape this, then it's breaking the normal css @import
     if (url.match(CSS_IMPORT_REGEX)) {
-      result.file = '\'' + url + '\''};
+      result.file = '\'' + url + '\'';
     }
 
     result.file = url;
