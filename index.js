@@ -1,18 +1,22 @@
 var path = require('path');
 
-module.exports = function importer(url, prev, done){
-  var regex = /^~/;
-  if (!url.match(regex)) {
+var CSS_IMPORT_REGEX = /^((\/\/)|(http:\/\/)|(https:\/\/))/;
+var IMPORTER_PREFIX_REGEX = /^~/;
 
-    var cssImportRegex = /^((\/\/)|(http:\/\/)|(https:\/\/))/;
+module.exports = function importer (url, prev, done){
+  var result = {};
+
+  if (url.match(IMPORTER_PREFIX_REGEX)) {
+    var modulePath = path.join(__dirname, '../../', 'node_modules', url.replace(IMPORTER_PREFIX_REGEX, ''));
+    result.file = modulePath;
+  } else {
     // if we don't escape this, then it's breaking the normal css @import
-    if (url.match(cssImportRegex)) {
-      return done({file: '\'' + url + '\''});
+    if (url.match(CSS_IMPORT_REGEX)) {
+      result.file = '\'' + url + '\''};
     }
 
-    return done({file: url});
+    result.file = url;
   }
 
-  var newFile = path.join(__dirname, '../../', 'node_modules', url.replace(regex, ''));
-  return done({file: newFile});
-}
+  return done ? done(results) : result;
+};
